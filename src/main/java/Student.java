@@ -5,7 +5,7 @@ public class Student {
     /** Instance properties */
     private long id;
     private String studentName;
-    private static ArrayList<Integer> grades;
+    private ArrayList<Integer> grades;
 
     /** Constructors */
     public Student () {}
@@ -28,12 +28,23 @@ public class Student {
         return grades;
     }
 
-    public double getGradeAverage() {
+    /** Get individual average*/
+    public double getGradeAverage1() {
         double total = 0;
         for (Integer grade: grades) {
             total += grade;
         }
         return total/ grades.size();
+    }
+
+    /** Get overall grade average */
+    public double getGradeAverage() {
+        double average = 0;
+        for (int i = 0; i < grades.size(); i++) {
+            double currentIndexedGrade = grades.get(i);
+            average += currentIndexedGrade;
+        }
+        return average / grades.size();
     }
 
     public void addGrade(int grade) {
